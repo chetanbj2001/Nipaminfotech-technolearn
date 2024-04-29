@@ -18,7 +18,7 @@ public class CategoryController {
     private CategoryService categoryService;
 
     @GetMapping
-    public List<Category> getAllCategories(@RequestParam(defaultValue = "0S") int page, @RequestParam(defaultValue = "5") int size) {
+    public List<Category> getAllCategories(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "5") int size) {
         Pageable pageable = PageRequest.of(page, size);
         Page<Category> categoryPage = categoryService.getAllCategories(pageable);
         return categoryPage.getContent();
